@@ -2,7 +2,7 @@ import { FaSearch } from "react-icons/fa";
 
 function Form() {
   return (
-    <form className="flex gap-x-2.5 justify-center">
+    <form className="flex gap-x-2.5 justify-center items-center">
       <label>
         <input className="border border-neutral-dark rounded-lg" type="text" name="" id="" />
       </label>
