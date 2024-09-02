@@ -31,8 +31,15 @@ function Form({ onSearch }: SearchBarProps) {
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
-    getLocation(e.target.value);
+    const value = e.target.value;
+    setQuery(value);
+
+    if(value.trim()){
+      getLocation(e.target.value);
+    }else{
+      setList([]);
+    }
+    
   }
 
   const handleSearch = (e: React.MouseEvent<HTMLButtonElement>) => {
