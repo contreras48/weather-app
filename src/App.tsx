@@ -5,7 +5,6 @@ const App: React.FC = () => {
   const [weather, setWeather] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
 
-
   const getUserLocation = () => {
     return new Promise<GeolocationCoordinates>((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
@@ -32,23 +31,36 @@ const App: React.FC = () => {
     }
   };
 
-  useEffect(() => {
-    const fetchWeather = async () => {
-      try {
-        const { latitude, longitude } = await getUserLocation();
-        const weatherData = await getWeather(latitude, longitude);
-        setWeather(weatherData);
-      } catch (err) {
-        setError('Failed to fetch weather data');
-      }
-    };
+  const fetchWeather = async (lat?: number, lon?: number) => {
+    let latitude, longitude;
 
+    try {
+      if(lat != undefined && lon != undefined){
+        latitude = lat;
+        longitude = lon;
+      }else{
+        const position  = await getUserLocation();
+        latitude = position.latitude;
+        longitude = position.longitude;
+      }
+      const weatherData = await getWeather(latitude, longitude);
+      setWeather(weatherData);
+    } catch (err) {
+      setError('Failed to fetch weather data');
+    }
+  };
+
+  const handleSearch = (position: any) => {
+    fetchWeather(position.lat, position.lon);
+  }
+
+  useEffect(() => {
     fetchWeather();
   }, []);
 
   return (
     <main className="w-full h-full flex flex-col justify-center items-center bg-neutral-light">
-      {weather ? <Card weather={weather} /> : <p>Loading...</p>}
+      {weather ? <Card weather={weather} handleSearch={handleSearch} /> : <p>Loading...</p>}
     </main>
   );
 }
