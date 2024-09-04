@@ -1,6 +1,4 @@
 import Details from './details';
-import { TiWeatherPartlySunny } from "react-icons/ti";
-import { Thermometer} from 'react-feather';
 
 interface weatherDetails {
   icon: string,

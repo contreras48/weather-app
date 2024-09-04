@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaSearch } from "react-icons/fa";
+import { Search } from 'react-feather';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -10,7 +10,9 @@ function Form({ onSearch }: SearchBarProps) {
   const [list, setList] = useState<any>([])
   const [selected, setSelected] = useState<any>(null)
 
-  const renderList = (list: any) => list.map((l: any, i: number) => <li className="mb-2" key={i} onClick={() => handleSelected(l)}>{l.name} {l.state ?? ""} {l.country}</li>)
+  const renderList = (list: any) => list.map((l: any, i: number) => {
+    return <li className="mb-2" key={i} onClick={() => handleSelected(l)}>{l.name}, {l.state ? l.state + ', ' : ''}{l.country}</li>;
+  });
 
   const getLocation = async (query: string) => {
     const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
@@ -59,7 +61,7 @@ function Form({ onSearch }: SearchBarProps) {
       <form className="w-full flex gap-x-2.5 justify-center items-center" action="">
         <label className="w-2/3 relative">
           <input
-            className="bg-accend rounded-lg w-full h-[28px] px-2 outline-none text-base" type="text" name="" id=""
+            className="bg-accend rounded-lg w-full h-[30px] px-2 outline-none text-base" type="text" name="" id=""
             value={query}
             onChange={handleChange}
           />
@@ -68,10 +70,10 @@ function Form({ onSearch }: SearchBarProps) {
         </ul>)}
         </label>
         <button
-          className="border border-accend bg-accend text-secondaryText text-sm rounded-full p-1.5"
+          className="border border-accend bg-accend text-secondaryText  rounded-full p-1.5"
           onClick={handleSearch}
         >
-          <FaSearch />
+          <Search size={16}/>
         </button>
       </form>
     </>

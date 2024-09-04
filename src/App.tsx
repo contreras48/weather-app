@@ -60,7 +60,8 @@ const App: React.FC = () => {
 
   return (
     <main className="w-full h-full flex flex-col justify-center items-center bg-neutral-light">
-      {weather ? <Card weather={weather} handleSearch={handleSearch} /> : <p>Loading...</p>}
+      {error ? error 
+      : weather ? <Card weather={weather} handleSearch={handleSearch} /> : <p>Loading...</p>}
     </main>
   );
 }
