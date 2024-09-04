@@ -10,10 +10,10 @@ interface details {
 
 function Details({ humidity, cloud, windSpeed }: details) {
   return(
-    <div className='w-full flex justify-around mt-2 gap-y-2 text-secondary'>
-      <Item value={`${humidity} %`} child={<Droplet className='text-neutral-dark'/>} />
-      <Item value={`${cloud} %`} child={<Cloud className='text-neutral-dark'/>} />
-      <Item value={`${windSpeed} m/s`} child={<Wind className='text-neutral-dark'/>} />
+    <div className='w-full flex justify-around mt-2 gap-y-2 text-primaryText'>
+      <Item value={`${humidity} %`} child={<Droplet/>} />
+      <Item value={`${cloud} %`} child={<Cloud/>} />
+      <Item value={`${windSpeed} m/s`} child={<Wind/>} />
     </div>
   )
 }

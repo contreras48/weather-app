@@ -15,7 +15,7 @@ function WeatherDetails({icon, temperature, place, humidity, cloud, windSpeed}: 
   return (
     <div className="w-full flex flex-col items-center ">
       <div className='flex gap-x-4'>
-        <img src={`https://openweathermap.org/img/wn/${icon}@4x.png`} className='filter drop-shadow-xl' height={"107px"} width={"107px"} alt="" />
+        <img src={`https://openweathermap.org/img/wn/${icon}@4x.png`} className='filter drop-shadow-xl object-none' height={"145px"} width={"145px"} alt=""/>
         <div className='flex flex-col justify-center items-center gap-y-1 text-primary'>
           <span className="text-5xl font-bold">{temperature}°c</span>
           <span className="text-2xl font-bold">{place}</span>

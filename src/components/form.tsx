@@ -59,16 +59,16 @@ function Form({ onSearch }: SearchBarProps) {
       <form className="relative flex gap-x-2.5 justify-center items-center" action="">
         <label>
           <input
-            className="border border-neutral-dark rounded-lg" type="text" name="" id=""
+            className="border border-accend bg-accend rounded-lg" type="text" name="" id=""
             value={query}
             onChange={handleChange}
           />
         </label>
-        {list.length > 0 && (<ul className="absolute top-7 bg-white border rounded mt-1 z-10">
+        {list.length > 0 && (<ul className="absolute top-7 bg-accend border rounded mt-1 z-10">
           {renderList(list)}
         </ul>)}
         <button
-          className="border border-neutral-dark text-highlight rounded-full p-1.5"
+          className="border border-accend bg-accend text-secondaryText text-sm rounded-full p-1.5"
           onClick={handleSearch}
         >
           <FaSearch />
