@@ -36,18 +36,20 @@ function Form({ onSearch }: SearchBarProps) {
     const value = e.target.value;
     setQuery(value);
 
-    if(value.trim()){
+    if (value.trim()) {
       getLocation(e.target.value);
-    }else{
+    } else {
       setList([]);
     }
-    
+
   }
 
   const handleSearch = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    onSearch(selected);
-    setQuery("")
+    if (query.trim()) {
+      onSearch(selected);
+      setQuery("")
+    }
   }
 
   const handleSelected = (val: any) => {
@@ -66,14 +68,14 @@ function Form({ onSearch }: SearchBarProps) {
             onChange={handleChange}
           />
           {list.length > 0 && (<ul className="w-full absolute top-7 bg-accend border rounded-lg mt-1 z-10 shadow-lg text-sm px-2 pt-2">
-          {renderList(list)}
-        </ul>)}
+            {renderList(list)}
+          </ul>)}
         </label>
         <button
           className="border border-accend bg-accend text-secondaryText  rounded-full p-1.5"
           onClick={handleSearch}
         >
-          <Search size={16}/>
+          <Search size={16} />
         </button>
       </form>
     </>
