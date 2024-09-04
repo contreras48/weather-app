@@ -56,10 +56,10 @@ function Form({ onSearch }: SearchBarProps) {
 
   return (
     <>
-      <form className="relative flex gap-x-2.5 justify-center items-center" action="">
-        <label>
+      <form className="w-full relative flex gap-x-2.5 justify-center items-center" action="">
+        <label className="w-2/3">
           <input
-            className="border border-accend bg-accend rounded-lg" type="text" name="" id=""
+            className="bg-accend rounded-lg w-full h-[28px] px-2 outline-none text-base" type="text" name="" id=""
             value={query}
             onChange={handleChange}
           />
