@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Search } from 'react-feather';
 
+import { getLocation } from "../services/weather";
+
 interface SearchBarProps {
   onSearch: (query: string) => void;
 }
@@ -14,30 +16,12 @@ function Form({ onSearch }: SearchBarProps) {
     return <li className="mb-2" key={i} onClick={() => handleSelected(l)}>{l.name}, {l.state ? l.state + ', ' : ''}{l.country}</li>;
   });
 
-  const getLocation = async (query: string) => {
-    const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
-    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`;
-
-    try {
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      setList(data)
-    } catch (error) {
-      console.error("Error fetching weather data:", error);
-      throw error;
-    }
-  };
-
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setQuery(value);
 
     if (value.trim()) {
-      getLocation(e.target.value);
+      setList(await getLocation(e.target.value));
     } else {
       setList([]);
     }
