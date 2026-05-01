@@ -4,7 +4,7 @@ import WeatherCondition from './weatherCondition';
 
 function Card({ weather, handleSearch }: any) {
   return (
-    <div className="w-fit bg-secondary border rounded-xl shadow-xl py-7 flex flex-col justify-center items-center">
+    <div className="w-fit bg-gradient-to-br from-teal-500 to-emerald-400 border rounded-xl shadow-xl py-7 flex flex-col justify-center items-center">
       <Form onSearch={handleSearch}/>
       <WeatherCondition condition={weather.weather[0].description}/>
       <WeatherDeatails

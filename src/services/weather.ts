@@ -2,6 +2,8 @@ import { ajax } from "../tools/ajax";
 
 const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
+console.log(apiKey)
+
 export const getWeather = async (lat: number, lon: number) => {
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=es`;
 

@@ -32,7 +32,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <main className="w-full h-full flex flex-col justify-center items-center bg-neutral-light">
+    <main className="w-full h-full flex flex-col justify-center items-center bg-gradient-to-br from-[#1e1e1e] via-[#2c2c2c] to-[#3a3a3a]">
       {error ? error
         : weather ? <Card weather={weather} handleSearch={handleSearch} /> : <p>Loading...</p>}
     </main>
