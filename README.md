@@ -1,12 +1,14 @@
-# 🌤 Weather App – Aplicación de Clima
+# Weather App – Aplicación de Clima
 
 Aplicación web desarrollada con React que permite consultar el clima actual de cualquier ciudad en tiempo real mediante el consumo de la API de OpenWeather.
 
 La aplicación obtiene datos dinámicamente y actualiza la interfaz según la ciudad ingresada por el usuario.
 
+<img width="1918" height="930" alt="image" src="https://github.com/user-attachments/assets/f9d939f5-e2ba-42bc-9925-4fa3f3b45a5b" />
+
 ---
 
-## 🚀 Tecnologías utilizadas
+## Tecnologías utilizadas
 
 - React
 - TypeScript
@@ -16,7 +18,7 @@ La aplicación obtiene datos dinámicamente y actualiza la interfaz según la ci
 
 ---
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 - Búsqueda de ciudad mediante input dinámico
 - Consumo de API externa (OpenWeather)
@@ -26,7 +28,7 @@ La aplicación obtiene datos dinámicamente y actualiza la interfaz según la ci
 
 ---
 
-## 🧠 Conceptos aplicados
+## Conceptos aplicados
 
 - Hooks de React
 - Manejo de estado
@@ -36,7 +38,7 @@ La aplicación obtiene datos dinámicamente y actualiza la interfaz según la ci
 
 ---
 
-## ⚙ Instalación y uso
+## Instalación y uso
 
 1. Clonar el repositorio
 2. Ejecutar `npm install`
